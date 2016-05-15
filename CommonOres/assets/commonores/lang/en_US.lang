@@ -1,0 +1,117 @@
+itemGroup.CommonOres.general=Common Ores and Metals
+itemGroup.CommonOres.tools=Common Ores - Tools and Weapons
+itemGroup.CommonOres.armor=Common Ores - Armor
+
+tile.CommonOres.oreTin.name=Tin Ore
+tile.CommonOres.oreCopper.name=Copper Ore
+tile.CommonOres.oreSilver.name=Silver Ore
+tile.CommonOres.oreAluminum.name=Aluminum Ore
+tile.CommonOres.oreLead.name=Lead Ore
+tile.CommonOres.oreNickel.name=Nickel Ore
+tile.CommonOres.orePlatinum.name=Platinum Ore
+
+item.CommonOres.ingotBronze.name=Bronze Ingot
+item.CommonOres.ingotElectrum.name=Electrum Ingot
+item.CommonOres.ingotPlatinum.name=Platinum Ingot
+item.CommonOres.ingotCopper.name=Copper Ingot
+item.CommonOres.ingotTin.name=Tin Ingot
+item.CommonOres.ingotSilver.name=Silver Ingot
+item.CommonOres.ingotAluminum.name=Aluminum Ingot
+item.CommonOres.ingotLead.name=Lead Ingot
+item.CommonOres.ingotNickel.name=Nickel Ingot
+
+tile.CommonOres.blockAluminum.name=Aluminum Block
+tile.CommonOres.blockPlatinum.name=Platinum Block
+tile.CommonOres.blockElectrum.name=Electrum Block
+tile.CommonOres.blockBronze.name=Bronze Block
+tile.CommonOres.blockCopper.name=Copper Block
+tile.CommonOres.blockNickel.name=Nickel Block
+tile.CommonOres.blockSilver.name=Silver Block
+tile.CommonOres.blockLead.name=Lead Block
+tile.CommonOres.blockTin.name=Tin Block
+
+item.CommonOres.toolAxeCopper.name=Copper Axe
+item.CommonOres.toolPickaxeCopper.name=Copper Pickaxe
+item.CommonOres.toolShovelCopper.name=Copper Shovel
+item.CommonOres.toolHoeCopper.name=Copper Hoe
+item.CommonOres.toolSwordCopper.name=Copper Sword
+
+item.CommonOres.toolAxeBronze.name=Bronze Axe
+item.CommonOres.toolPickaxeBronze.name=Bronze Pickaxe
+item.CommonOres.toolShovelBronze.name=Bronze Shovel
+item.CommonOres.toolHoeBronze.name=Bronze Hoe
+item.CommonOres.toolSwordBronze.name=Bronze Sword
+
+item.CommonOres.toolAxeElectrum.name=Electrum Axe
+item.CommonOres.toolPickaxeElectrum.name=Electrum Pickaxe
+item.CommonOres.toolShovelElectrum.name=Electrum Shovel
+item.CommonOres.toolHoeElectrum.name=Electrum Hoe
+item.CommonOres.toolSwordElectrum.name=Electrum Sword
+
+item.CommonOres.toolAxeSilver.name=Silver Axe
+item.CommonOres.toolPickaxeSilver.name=Silver Pickaxe
+item.CommonOres.toolShovelSilver.name=Silver Shovel
+item.CommonOres.toolHoeSilver.name=Silver Hoe
+item.CommonOres.toolSwordSilver.name=Silver Sword
+
+item.CommonOres.toolAxePlatinum.name=Platinum Axe
+item.CommonOres.toolPickaxePlatinum.name=Platinum Pickaxe
+item.CommonOres.toolShovelPlatinum.name=Platinum Shovel
+item.CommonOres.toolHoePlatinum.name=Platinum Hoe
+item.CommonOres.toolSwordPlatinum.name=Platinum Sword
+
+item.CommonOres.toolAxeAluminum.name=Aluminum Axe
+item.CommonOres.toolPickaxeAluminum.name=Aluminum Pickaxe
+item.CommonOres.toolShovelAluminum.name=Aluminum Shovel
+item.CommonOres.toolHoeAluminum.name=Aluminum Hoe
+item.CommonOres.toolSwordAluminum.name=Aluminum Sword
+
+item.CommonOres.toolAxeNickel.name=Nickel Axe
+item.CommonOres.toolPickaxeNickel.name=Nickel Pickaxe
+item.CommonOres.toolShovelNickel.name=Nickel Shovel
+item.CommonOres.toolHoeNickel.name=Nickel Hoe
+item.CommonOres.toolSwordNickel.name=Nickel Sword
+
+item.CommonOres.toolAxeFlint.name=Flint Axe
+item.CommonOres.toolPickaxeFlint.name=Flint Pickaxe
+item.CommonOres.toolShovelFlint.name=Flint Shovel
+item.CommonOres.toolHoeFlint.name=Flint Hoe
+item.CommonOres.toolSwordFlint.name=Flint Sword
+
+item.CommonOres.toolPipeLead.name=Lead Pipe
+
+item.CommonOres.armorElectrumHelmet.name=Electrum Helmet
+item.CommonOres.armorElectrumChestplate.name=Electrum Chestplate
+item.CommonOres.armorElectrumLeggings.name=Electrum Leggings
+item.CommonOres.armorElectrumBoots.name=Electrum Boots
+
+item.CommonOres.armorSilverHelmet.name=Silver Helmet
+item.CommonOres.armorSilverChestplate.name=Silver Chestplate
+item.CommonOres.armorSilverLeggings.name=Silver Leggings
+item.CommonOres.armorSilverBoots.name=Silver Boots 
+
+item.CommonOres.armorCopperHelmet.name=Copper Helmet
+item.CommonOres.armorCopperChestplate.name=Copper Chestplate
+item.CommonOres.armorCopperLeggings.name=Copper Leggings
+item.CommonOres.armorCopperBoots.name=Copper Boots 
+
+item.CommonOres.armorBronzeHelmet.name=Bronze Helmet
+item.CommonOres.armorBronzeChestplate.name=Bronze Chestplate
+item.CommonOres.armorBronzeLeggings.name=Bronze Leggings
+item.CommonOres.armorBronzeBoots.name=Bronze Boots 
+
+item.CommonOres.armorPlatinumHelmet.name=Platinum Helmet
+item.CommonOres.armorPlatinumChestplate.name=Platinum Chestplate
+item.CommonOres.armorPlatinumLeggings.name=Platinum Leggings
+item.CommonOres.armorPlatinumBoots.name=Platinum Boots 
+
+item.CommonOres.armorAluminumHelmet.name=Aluminum Helmet
+item.CommonOres.armorAluminumChestplate.name=Aluminum Chestplate
+item.CommonOres.armorAluminumLeggings.name=Aluminum Leggings
+item.CommonOres.armorAluminumBoots.name=Aluminum Boots 
+
+item.CommonOres.armorNickelHelmet.name=Nickel Helmet
+item.CommonOres.armorNickelChestplate.name=Nickel Chestplate
+item.CommonOres.armorNickelLeggings.name=Nickel Leggings
+item.CommonOres.armorNickelBoots.name=Nickel Boots 
+

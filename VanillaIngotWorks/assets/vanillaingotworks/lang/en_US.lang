@@ -1,0 +1,42 @@
+itemGroup.VanillaIngotWorks.general=Vanilla Ingot Works
+
+item.VanillaIngotWorks.itemCrucible.unfired.name=Unfired Crucible
+item.VanillaIngotWorks.itemCrucible.fired.name=Empty Crucible
+item.VanillaIngotWorks.itemCrucible.filled.name=Filled Crucible
+item.VanillaIngotWorks.itemCrucible.cooked.name=Hot Crucible
+item.VanillaIngotWorks.itemIngotMold.name=Ingot Mold
+
+info.VanillaIngotWorks.itemCrucible.contains=Contains
+info.VanillaIngotWorks.itemCrucible.and=and
+info.VanillaIngotWorks.itemCrucible.for=for
+info.VanillaIngotWorks.itemCrucible.ingots=ingots
+
+info.VanillaIngotWorks.itemCrucible.ingredient.ingotCopper=a Â§cCopperÂ§7 Ingot
+info.VanillaIngotWorks.itemCrucible.ingredient.ingotTin=a Â§3TinÂ§7 Ingot
+info.VanillaIngotWorks.itemCrucible.ingredient.ingotGold=a Â§6GoldÂ§7 Ingot
+info.VanillaIngotWorks.itemCrucible.ingredient.ingotSilver=a Â§bSilverÂ§7 Ingot
+
+info.VanillaIngotWorks.itemCrucible.ingredient.oreIron=an Â§fIronÂ§7 Ore
+info.VanillaIngotWorks.itemCrucible.ingredient.oreAluminum=an Â§fAluminumÂ§7 Ore
+info.VanillaIngotWorks.itemCrucible.ingredient.oreTin=a Â§3TinÂ§7 Ore
+info.VanillaIngotWorks.itemCrucible.ingredient.oreGold=a Â§6GoldÂ§7 Ore
+info.VanillaIngotWorks.itemCrucible.ingredient.oreCopper=a Â§cCopperÂ§7 Ore
+info.VanillaIngotWorks.itemCrucible.ingredient.oreSilver=a Â§bSilverÂ§b Ore
+info.VanillaIngotWorks.itemCrucible.ingredient.oreNickel=a Â§fNickelÂ§7 Ore
+info.VanillaIngotWorks.itemCrucible.ingredient.orePlatinum=a Â§bPlatinumÂ§b Ore
+info.VanillaIngotWorks.itemCrucible.ingredient.oreLead=a Â§3LeadÂ§7 Ore
+
+info.VanillaIngotWorks.itemCrucible.alloy.ingotBronze=molten Â§4BronzeÂ§7
+info.VanillaIngotWorks.itemCrucible.alloy.ingotElectrum=molten Â§eElectrumÂ§7
+info.VanillaIngotWorks.itemCrucible.alloy.ingotCopper=molten Â§cCopperÂ§7
+info.VanillaIngotWorks.itemCrucible.alloy.ingotIron=molten Â§fIronÂ§7
+info.VanillaIngotWorks.itemCrucible.alloy.ingotAluminum=molten Â§fAluminumÂ§7
+info.VanillaIngotWorks.itemCrucible.alloy.ingotTin=molten Â§3TinÂ§7
+info.VanillaIngotWorks.itemCrucible.alloy.ingotGold=molten Â§6GoldÂ§7
+info.VanillaIngotWorks.itemCrucible.alloy.ingotSilver=molten Â§bSilverÂ§b
+info.VanillaIngotWorks.itemCrucible.alloy.ingotNickel=molten Â§fNickelÂ§7
+info.VanillaIngotWorks.itemCrucible.alloy.ingotLead=molten Â§3LeadÂ§7
+info.VanillaIngotWorks.itemCrucible.alloy.ingotPlatinum=molten Â§bPlatinumÂ§b
+
+info.VanillaIngotWorks.ItemIngotMold.info1=Combined with Hot Crucible
+info.VanillaIngotWorks.ItemIngotMold.info2=to make two ingots of metal.
