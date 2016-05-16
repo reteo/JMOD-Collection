@@ -33,7 +33,7 @@ addItem("ingotGeneric", "IngotGeneric", 64, "CommonOres.general");
 var ores = ["Silver","Copper","Tin", "Platinum","Aluminum","Lead","Nickel"];
 
 for(var m in ores){
-    addBlock("ore" + ores[m], "CoreBlock", 10.0, 15.0, "pickaxe", 1, "iron", "CommonOres.general");
+    addBlock("ore" + ores[m], "CoreBlock", 3.0, 5.0, "pickaxe", 1, "rock", "CommonOres.general");
     addOreDict("CommonOres:" + "ore" + ores[m], "ore" + ores[m]);
 }
 
