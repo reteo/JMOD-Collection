@@ -29,22 +29,23 @@ defineColor("NICKEL", 221, 210, 168);
 addBlock("blockMetalGeneric", "MetalBlock", 10.0, 10.0, "pickaxe", 1, "iron", "CommonOres.general");
 addItem("ingotGeneric", "IngotGeneric", 64, "CommonOres.general");
 
+// Next, we add the blocks and ingots.
+var metals = ["bronze","electrum","silver","copper","tin", "platinum","aluminum","lead","nickel"];
+
+for(var m in metals){
+    addMetalBlock(metals[m]);
+    addOreDict("CommonOres:" + "block" + metals[m], "block" + metals[m]);
+    addMetalIngot(metals[m]);
+    addOreDict("CommonOres:" + "ingot" + metals[m], "ingot" + metals[m]);
+}
+
 // Then, we add the ores.
 var ores = ["Silver","Copper","Tin", "Platinum","Aluminum","Lead","Nickel"];
 
 for(var m in ores){
     addBlock("ore" + ores[m], "CoreBlock", 3.0, 5.0, "pickaxe", 1, "rock", "CommonOres.general");
     addOreDict("CommonOres:" + "ore" + ores[m], "ore" + ores[m]);
-}
-
-// Next, we add the blocks and ingots.
-var metals = ["bronze","electrum","silver","copper","tin", "platinum","aluminum","lead","nickel"];
-
-for(var m in metals){
-    addMetalBlock(metals[m]);
-    addOreDict("CommonOres:" + "block" + ores[m], "block" + ores[m]);
-    addMetalIngot(metals[m]);
-    addOreDict("CommonOres:" + "ingot" + ores[m], "ingot" + ores[m]);
+    addSmeltingRecipe("CommonOres:" + "ingot" + ores[m],"CommonOres:" + "ore" + ores[m]);
 }
 
 // Now, we move onto materials.
@@ -57,7 +58,7 @@ addToolMaterial( "ALUMINUM", 2, 175, 4.5,2.0, 4, "ingotAluminum" );
 addToolMaterial( "BRONZE", 2, 250, 6.0,1.0,14, "ingotBronze" );
 addToolMaterial( "PLATINUM", 2,400, 7.0,1.0,30, "ingotPlatinum" );
 addToolMaterial( "NICKEL", 2, 200, 7.0,2.5,17, "ingotNickel" );
-addToolMaterial( "LEAD", 0, 150, 7.0,4.0,0, "ingotLead" );
+addToolMaterial( "LEAD", 0, 131, 7.0,4.0,0, "ingotLead" );
 
 // Then, for armor.
 addArmorMaterial( "COPPER", 8,2,5,4,1, 9,"ingotCopper" );
@@ -72,12 +73,11 @@ addArmorMaterial( "NICKEL", 14,2,6,5,2, 15,"ingotNickel" );
 // Now, to actually make the tools and armor.
 // First, the tools.
 var toolTypes = ["Sword","Hoe","Pickaxe","Axe","Shovel"];
-//var toolMats = ["Flint","Bronze","Electrum","Silver","Copper","Platinum","Aluminum","Nickel"];
-var toolMats = ["Bronze","Electrum","Silver","Copper","Platinum","Aluminum","Nickel"];
+var toolMats = ["Flint","Bronze","Electrum","Silver","Copper","Platinum","Aluminum","Nickel"];
 
 for(var m in toolMats) for(var n in toolTypes){
-	addItem("tool" + toolTypes[n] + toolMats[m],"Tool" + toolTypes[n],1,"CommonOres.tools").tooldata(		ToolData(toolMats[m].toUpperCase())	);
-	addShapedStandardRecipe(	"CommonOres:tool" + toolTypes[n] + toolMats[m], toolTypes[n].toLowerCase(), (toolMats[m] != "Flint" ? "ingot" : "item")+toolMats[m]);
+	addItem("tool" + toolTypes[n] + toolMats[m],"Tool" + toolTypes[n],1,"CommonOres.tools").tooldata(ToolData(toolMats[m].toUpperCase()));
+	addShapedStandardRecipe("CommonOres:tool" + toolTypes[n] + toolMats[m], toolTypes[n].toLowerCase(), (toolMats[m] != "Flint" ? "ingot" : "item")+toolMats[m]);
 }
 
 // What's the point of lead if we can't have a lead pipe?  A very nasty weapon, but doesn't last long.
@@ -89,44 +89,13 @@ addShapedRecipe("CommonOres:toolPipeLead", [
   [null, "ingotLead", null],
   ["ingotLead", null, null]]);
 
-// Flint tools also have no recipes by default.  This needs fixing.
-//Pickaxe
-addShapedRecipe("CommonOres:toolPickaxeFlint", [
-  ["itemFlint", "itemFlint", "itemFlint"],
-  [null, "stickWood", null],
-  [null, "stickWood", null]]);
-
-//Hoe
-addShapedRecipe("CommonOres:toolHoeFlint", [
-  ["itemFlint", "itemFlint", null],
-  [null, "stickWood", null],
-  [null, "stickWood", null]]);
-
-//Axe
-addShapedRecipe("CommonOres:toolAxeFlint", [
-  ["itemFlint", "itemFlint", null],
-  ["itemFlint", "stickWood", null],
-  [null, "stickWood", null]]);
-
-//Shovel
-addShapedRecipe("CommonOres:toolShovelFlint", [
-  [null, "itemFlint", null],
-  [null, "stickWood", null],
-  [null, "stickWood", null]]);
-
-//Sword
-addShapedRecipe("CommonOres:toolSwordFlint", [
-  [null, "itemFlint", null],
-  [null, "itemFlint", null],
-  [null, "stickWood", null]]);
-
 // Next, the Armor
 var armorTypes = ["Helmet","Chestplate","Leggings","Boots"];
 var armorMats = ["Bronze","Electrum","Silver","Copper","Platinum","Aluminum","Nickel"];
 
 for(var m in armorMats) for(var n in armorTypes) {
-	addItem("armor" + armorMats[m] + armorTypes[n],"CoreArmor",1,"CommonOres.armor").armordata(			ArmorData(armorMats[m].toUpperCase(),armorTypes[n].toLowerCase())	);
-	addShapedStandardRecipe(	"CommonOres:armor" + armorMats[m] + armorTypes[n],armorTypes[n].toLowerCase(),"ingot"+armorMats[m]);
+	addItem("armor" + armorMats[m] + armorTypes[n],"CoreArmor",1,"CommonOres.armor").armordata(ArmorData(armorMats[m].toUpperCase(),armorTypes[n].toLowerCase()));
+	addShapedStandardRecipe("CommonOres:armor" + armorMats[m] + armorTypes[n],armorTypes[n].toLowerCase(),"ingot"+armorMats[m]);
 }
 
 // Finally, the ore needs to be spawned in the world.
