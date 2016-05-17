@@ -35,12 +35,14 @@ item.CommonOres.toolPickaxeCopper.name=Copper Pickaxe
 item.CommonOres.toolShovelCopper.name=Copper Shovel
 item.CommonOres.toolHoeCopper.name=Copper Hoe
 item.CommonOres.toolSwordCopper.name=Copper Sword
+item.CommonOres.toolChiselCopper.name=Copper Sword
 
 item.CommonOres.toolAxeBronze.name=Bronze Axe
 item.CommonOres.toolPickaxeBronze.name=Bronze Pickaxe
 item.CommonOres.toolShovelBronze.name=Bronze Shovel
 item.CommonOres.toolHoeBronze.name=Bronze Hoe
 item.CommonOres.toolSwordBronze.name=Bronze Sword
+item.CommonOres.toolChiselBronze.name=Bronze Chisel
 
 item.CommonOres.toolAxeElectrum.name=Electrum Axe
 item.CommonOres.toolPickaxeElectrum.name=Electrum Pickaxe
@@ -59,24 +61,28 @@ item.CommonOres.toolPickaxePlatinum.name=Platinum Pickaxe
 item.CommonOres.toolShovelPlatinum.name=Platinum Shovel
 item.CommonOres.toolHoePlatinum.name=Platinum Hoe
 item.CommonOres.toolSwordPlatinum.name=Platinum Sword
+item.CommonOres.toolChiselPlatinum.name=Platinum Chisel
 
 item.CommonOres.toolAxeAluminum.name=Aluminum Axe
 item.CommonOres.toolPickaxeAluminum.name=Aluminum Pickaxe
 item.CommonOres.toolShovelAluminum.name=Aluminum Shovel
 item.CommonOres.toolHoeAluminum.name=Aluminum Hoe
 item.CommonOres.toolSwordAluminum.name=Aluminum Sword
+item.CommonOres.toolChiselAluminum.name=Aluminum Chisel
 
 item.CommonOres.toolAxeNickel.name=Nickel Axe
 item.CommonOres.toolPickaxeNickel.name=Nickel Pickaxe
 item.CommonOres.toolShovelNickel.name=Nickel Shovel
 item.CommonOres.toolHoeNickel.name=Nickel Hoe
 item.CommonOres.toolSwordNickel.name=Nickel Sword
+item.CommonOres.toolChiselNickel.name=Nickel Chisel
 
 item.CommonOres.toolAxeFlint.name=Flint Axe
 item.CommonOres.toolPickaxeFlint.name=Flint Pickaxe
 item.CommonOres.toolShovelFlint.name=Flint Shovel
 item.CommonOres.toolHoeFlint.name=Flint Hoe
 item.CommonOres.toolSwordFlint.name=Flint Sword
+item.CommonOres.toolChiselFlint.name=Flint Chisel
 
 item.CommonOres.toolPipeLead.name=Lead Pipe
 

@@ -99,6 +99,30 @@ for(var m in armorMats) for(var n in armorTypes) {
 	addShapedStandardRecipe("CommonOres:armor" + armorMats[m] + armorTypes[n],armorTypes[n].toLowerCase(),"ingot"+armorMats[m]);
 }
 
+// If the chisel mod is included, let's add a few additional chisels to the game.
+if(isModLoaded("chisel")){
+
+    // Order of options: Material name, durability, has modes?
+    var materials = [
+        ["Flint",64,false],
+        ["Copper",128,true],
+        ["Aluminum",256,true],
+        ["Nickel",320,true],
+        ["Bronze",512,true],
+        ["Platinum",640,true]
+    ];
+    
+    for (var m in materials) {
+        mat=(materials[m][0] != "Flint" ? "ingot" : "item")+materials[m][0];
+        addItem("toolChisel"+materials[m][0], "ToolChisel", 1, "CommonOres.tools").tooldata(ToolData(materials[m][0].toUpperCase()).durability(materials[m][1]).hasModes(materials[m][2]));
+        addShapedRecipe("CommonOres:toolChisel"+materials[m][0], [
+            [null,          mat,    null ],
+            ["stickWood",   null,   null ],
+            [null,          null,   null ]]);
+    }
+}
+else log("Chisel mod is not installed; skipping additional chisels.");
+
 // Finally, the ore needs to be spawned in the world.
 // The order is "name", vein size, chances per chunk, lower Y level, higher Y level.
 ores = [
