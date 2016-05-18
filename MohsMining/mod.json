@@ -1,6 +1,6 @@
 {
   "modid": "MohsMining",
-  "name": "Mohs Mining",
+  "name": "Moh's Mining",
   "description" : "Rearranges harvest levels to approximate Moh's Scale of Hardness.  Conflicts with both Common Ores and Tool Repair, but provides the features of both.  Also provides obsidian tools and armor.",
   "version"	:	"1.0",
   "scripts" : ["main.js"],
