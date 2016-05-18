@@ -18,10 +18,12 @@ For reference, here is Moh's scale:
 
 * **2:** tin & lead
 * **2.5:** gold, silver, aluminum, electrum
-* **3.** copper, bronze
+* **3.** copper, bronze, redstone
 * **3.5** platinum
 * **4.** iron, nickel
 * **4.5:** steel
 * **5:** obsidian
-* **7.5:** emerald
+* **7.5:** emerald, lapis lazuli
 * **10:** diamond
+
+For the sake of the game I assume that the fictional material redstone is an energetic alloy of copper, and subject to the same hardness.
