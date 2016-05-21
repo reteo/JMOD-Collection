@@ -50,10 +50,12 @@ addItem("ingotGeneric", "IngotGeneric", 64, "MohsMining.general");
 var metals = ["Aluminum","Copper","Tin","Bronze","Nickel","Lead","Silver","Platinum","Electrum"];
 
 for(var m in metals){
-    addMetalBlock(metals[m]);
-    addOreDict("MohsMining:" + "block" + metals[m], "block" + metals[m]);
     addMetalIngot(metals[m]);
-    addOreDict("MohsMining:" + "ingot" + metals[m], "ingot" + metals[m]);
+    addOreDict("MohsMining:ingot" + metals[m], "ingot" + metals[m]);
+    addShapelessRecipe("MohsMining:ingot" + metals[m] + "@9", ["block" + metals[m]]);
+    addMetalBlock(metals[m]);
+    addOreDict("MohsMining:block" + metals[m], "block" + metals[m]);
+    addShapedStandardRecipe("MohsMining:block" + metals[m], "block", "ingot" + metals[m]);
 }
 
 // Now, we move onto materials.
