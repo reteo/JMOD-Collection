@@ -19,9 +19,9 @@ Settings.showToolHarvestLevels(true);
 Settings.showArmorValues(true);
 
 // Before we begin, it helps to have a creative mode tab.
-addCreativeTab("MohsMining.general","Common Ores: Ores and Metals","MohsMining:oreCopper");
-addCreativeTab("MohsMining.tools","Common Ores: Tools and Weapons","MohsMining:toolPipeLead");
-addCreativeTab("MohsMining.armor","Common Ores: Armor","MohsMining:armorSilverChestplate");
+addCreativeTab("MohsMining.general","Moh's Mining: Ores and Metals","MohsMining:oreCopper");
+addCreativeTab("MohsMining.tools","Moh's Mining: Tools and Weapons","MohsMining:toolPipeLead");
+addCreativeTab("MohsMining.armor","Moh's Mining: Armor","MohsMining:armorSilverChestplate");
 
 // First, let's assign colors.
 
