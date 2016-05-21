@@ -1,5 +1,6 @@
-/* Common Ores is a mod that provides common materials used by many mods.
- * This mod includes weapons, tools, and armor.
+/* Moh's Mining is a jmod that replaces the vanilla mining progression with one that.
+ * progresses based on mineral hardness.  This mod includes both Common Ores and
+ * Tool Repair, so it should not be used in combination with those mods.
  * 
  * It is recommended to install Vanilla Ingot Works in order to make the alloys.
  */
