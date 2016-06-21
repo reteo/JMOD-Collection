@@ -13,5 +13,6 @@ addShapedRecipe("SimpleWoodenBucket:itemWoodenBucket", [
   ["plankWood", null,           "plankWood" ],
   [null,        "plankWood",    null ]]);
 
-/* Something to note: The milk bucket is not drinkable, so it cannot help with status effects.
- * It simply makes recipes requiring milk possible. */
+// Add a special recipe in the case that Pam's HarvestCraft is installed.
+if (isModLoaded("harvestcraft"))
+    addShapelessRecipe("harvestcraft:freshmilkItem", ["SimpleWoodenBucket:itemWoodenBucket_milk"]);
