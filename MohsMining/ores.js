@@ -127,7 +127,7 @@ for (var m in blocks)
 // The order is "name", vein size, chances per chunk, lower Y level, higher Y level.
 if (!isModLoaded(CustomOreGen)){
     ores = [
-        ["Alumninum", 7, 24, 5, 64],
+        ["Aluminum", 7, 24, 5, 64],
         ["Copper", 7, 22, 5, 64],
         ["Tin", 7, 20, 5, 64],
         ["Nickel", 8, 12, 16, 48],
