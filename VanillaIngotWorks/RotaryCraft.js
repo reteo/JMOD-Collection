@@ -1,26 +1,33 @@
-// This will add alloy recipes for the RotaryCraft Blast Furnace.
-// Legend: Result [Ingredient 1, Ingredient 2].
-var recipes = [
-    ["Bronze",      ["Copper","Tin"]],
-    ["Electrum",    ["Silver","Gold"]],
+// Add definitions for RotaryCraft
+log("Launching Blast Furnace Recipes.");
+
+var aluminumFlakes          = 	"RotaryCraft:rotarycraft_item_modextracts:27";
+
+
+/* Let's make a new recipe for metal alloys to encourage use of the blast furnace.
+   In addition, this allows recipes that are more true to life; a primary ingredient
+   with one or more additive ingredients.
+*/
+// Legend: Result, [count, Main Ingredient], Temperature [Additive 1, % chance consumed, # consumed], [Additive 2, % chance consumed, # consumed], [Additive 3, % chance consumed, # consumed], Bonus?, XP per smelt
+// NOTE: if count is less than 1, then it is ignored, and any count... er... counts.
+var alloys = [
+    ["ingotBronze",     [0, "ingotCopper"],   550,    ["ingotTin",    100, 1],        [null],                  [null],    true,   1],
+    ["ingotElectrum",   [0, "ingotGold"],     550,    ["ingotSilver", 100, 1],        [null],                  [null],    true,   1],
+    ["ingotSteel",      [0, "ingotIron"],     550,    ["itemCoal",    100, 2],        [null],                  [null],    false,  1],
+    ["ingotSteel",      [0, "ingotIron"],     550,    ["itemCharcoal",100, 4],        [null],                  [null],    false,  1],
+    ["ingotSteel",      [0, "ingotIron"],     550,    ["coalCoke",    100, 1],        [null],                  [null],    false,  1],
+    ["ingotSteel",      [0, "ingotIron"],    1200,    ["coalCoke",    100, 1],        ["dustGunpowder", 3, 1], [null],    true,   1]
 ];
 
-for (var m in recipes)
-    RotaryCraft.addBlastFurnaceRecipe("ingot" + recipes[m][0], 600, 1, 0, [["ingot" + recipes[m][1][0], "ingot" + recipes[m][1][1], null], [null, null, null], [null,null,null]]);
 
-// Steel is a different story.  A loop won't cut it here.
-// RotaryCraft already has HSLA steel recipes, this is for the lower-grade steel.
-RotaryCraft.addBlastFurnaceAlloying	("SurvivalIndustry:ingotSteel","ingotIron",550).setXP(1).input(1,"itemCoal",100,2); // coal
-RotaryCraft.addBlastFurnaceAlloying	("SurvivalIndustry:ingotSteel","ingotIron",550).setXP(1).input(1,"itemCharcoal",100,4); // charcoal
+// Legend: Result, temperature, speed, xp, [[first,crafting,row],[second,crafting,row],[third,crafting,row]]
+var recipes = [
+    ["minecraft:stone_brick_stairs",  600, 1, 0, [["cobblestone", null, null],["cobblestone", "cobblestone", null],["cobblestone", "cobblestone", "cobblestone"]]]  // Just to get the ball rolling. :P
+];
 
-// Next is iron with one coal coke in the side slot.
-RotaryCraft.addBlastFurnaceAlloying	("SurvivalIndustry:ingotSteel","ingotIron",550).setXP(1).input(1,"coalCoke",100,1);
-
-// By adding gunpowder in addition to coal coke, and bringing up the heat, we can get bonus metal.
-RotaryCraft.addBlastFurnaceAlloying	("SurvivalIndustry:ingotSteel","ingotIron",1200).setXP(1).input(1,"coalCoke",100,1).input(2,"dustGunpowder",3,1);
 
 // Now, EnderIO stuff is included here.
-if (isModLoaded("EnderIO"){
+if (isModLoaded("EnderIO")){
     
 // EnderIO Definitions
     var eioSilicon              =	"EnderIO:itemMaterial:1";
@@ -40,30 +47,157 @@ if (isModLoaded("EnderIO"){
     var enlightenedClearGlass   =	"EnderIO:blockFusedQuartz:3";
     var darkFusedQuartz         =	"EnderIO:blockFusedQuartz:4";
     var darkClearGlass          =	"EnderIO:blockFusedQuartz:5";
-       
-    var recipe = [
-        [electricalSteel,    600,1,0,[["ingotSteel","itemSilicon",null],[null,null,null],[null,null,null]]],
-        [electricalSteel,	 600,1,0,[["ingotHSLA","itemSilicon",null],[null,null,null],[null,null,null]]],
-        [energeticAlloy,	1000,1,0,[["dustRedstone","ingotGold","dustGlowstone"],[null,null,null],[null,null,null]]],
-        [vibrantAlloy,		1450,1,0,[["ingotEnergeticAlloy","pearlEnder",null],[null,null,null],[null,null,null]]],
-        [conductiveIron,	 600,1,0,[["dustRedstone","ingotIron",null],[null,null,null],[null,null,null]]],
-        [redstoneAlloy,		 600,1,0,[["dustRedstone","itemSilicon",null],[null,null,null],[null,null,null]]],
-        [pulsatingIron,		1000,1,0,[["pearlEnder","ingotIron",null],[null,null,null],[null,null,null]]],
-        [darkSteel,			1200,1,0,[["ingotSteel","blockObsidian",null],[null,null,null],[null,null,null]]],
-        [darkSteel,			1200,1,0,[["ingotHSLA","blockObsidian",null],[null,null,null],[null,null,null]]],
-        [soularium,			1450,1,0,[["soulsand","ingotGold",null],[null,null,null],[null,null,null]]]
+           
+    var eioAlloys = [
+      [electricalSteel,       [0, "ingotSteel"],          600,    ["itemSilicon", 100, 1],        [null],                    [null],    false,   1],
+      [electricalSteel,       [0, "ingotHSLA"],           600,    ["itemSilicon", 100, 1],        [null],                    [null],    false,   1],
+      [energeticAlloy,        [0, "ingotGold"],          1000,    ["dustRedstone", 100, 1],       ["dustGlowstone", 100, 1], [null],    false,   1],
+      [vibrantAlloy,          [0, "ingotEnergeticAlloy"],1450,    ["pearlEnder", 100, 1],         [null],                    [null],    false,   1],
+      [fusedQuartz,           [4, "gemQuartz"],           600,    [null],                         [null],                    [null],    false,   1],
+      [quiteClearGlass,       [1, "sand"],                600,    [null],                         [null],                    [null],    false,   1],
+      [enlightenedFusedQuartz,[4, "gemQuartz"],           600,    ["dustGlowstone",100, 4],       [null],                    [null],    false,   1],
+      [enlightenedClearGlass, [1, "sand"],                600,    ["dustGlowstone",100, 4],       [null],                    [null],    false,   1],
+      [darkFusedQuartz,       [4, "gemQuartz"],           600,    ["dyeBlack",100, 4],            [null],                    [null],    false,   1],
+      [darkClearGlass,        [1, "sand"],                600,    ["dyeBlack",100, 4],            [null],                    [null],    false,   1],
+      [eioSilicon,            [0, "sand"],                800,    ["itemCharcoal",25, 4],         [aluminumFlakes,25, 1],    [null],    false,   1],
+      [eioSilicon,            [0, "sand"],                800,    ["itemCoal",25, 1],             [aluminumFlakes,25, 1],    [null],    false,   1],
+      [eioSilicon,            [0, "sand"],                800,    ["coalCoke",25, 1],             [aluminumFlakes,25, 1],    [null],    true,    1],
+      [conductiveIron,        [0, "ingotIron"],           600,    ["dustRedstone", 100, 1],       [null],                    [null],    false,   1],
+      [redstoneAlloy,         [0, "itemSilicon"],         600,    ["dustRedstone", 100, 1],       [null],                    [null],    false,   1],
+      [pulsatingIron,         [0, "ingotIron"],          1000,    ["pearlEnder", 100, 1],         [null],                    [null],    false,   1],
+      [darkSteel,             [0, "ingotSteel"],         1200,    ["blockObsidian", 100, 1],      [null],                    [null],    false,   1],
+      [darkSteel,             [0, "ingotHSLA"],          1200,    ["blockObsidian", 100, 1],      [null],                    [null],    false,   1],
+      [soularium,             [0, "soulsand"],           1450,    ["ingotGold", 100, 1],          [null],                    [null],    false,   1],
     ];
+    
+    alloys.push.apply(alloys,eioAlloys);  // Merge the general alloys with the EnderIO specific ones.
+    
+}
 
-    for (var m in recipe)
-        RotaryCraft.addBlastFurnaceRecipe(recipe[m][0],recipe[m][1],recipe[m][2],recipe[m][3],recipe[m][4]);
+    
+// ------- Assignment Code; don't change anything after this line. -----------
 
-    RotaryCraft.addBlastFurnaceAlloying	(fusedQuartz, "gemQuartz",600).required(4).setXP(1);
-    RotaryCraft.addBlastFurnaceAlloying	(quiteClearGlass, "sand",600).required(1).setXP(1);
-    RotaryCraft.addBlastFurnaceAlloying	(enlightenedFusedQuartz, "gemQuartz",600).required(4).setXP(1).input(1,"dustGlowstone",100,4);
-    RotaryCraft.addBlastFurnaceAlloying	(enlightenedClearGlass, "sand",600).required(1).setXP(1).input(1,"dustGlowstone",100,4);
-    RotaryCraft.addBlastFurnaceAlloying	(darkFusedQuartz, "gemQuartz",600).required(4).setXP(1).input(1,"dyeBlack",100,4);
-    RotaryCraft.addBlastFurnaceAlloying	(darkClearGlass, "sand",600).required(1).setXP(1).input(1,"dyeBlack",100,4);
-    RotaryCraft.addBlastFurnaceAlloying (eioSilicon,"sand",800).input(1,aluminumFlakes,25,1).input(1,"itemCoal",25,1);
-    RotaryCraft.addBlastFurnaceAlloying (eioSilicon,"sand",800).input(1,aluminumFlakes,25,1).input(1,"itemCoal",25,1);
-    RotaryCraft.addBlastFurnaceAlloying (eioSilicon,"sand",800).input(1,aluminumFlakes,25,1).input(1,"coalCoke",25,1).addBonus();
+
+
+
+
+// Code to apply Blast Furnace Recipes.
+
+for (var m in recipes) {
+    RotaryCraft.addBlastFurnaceRecipe(recipes[m][0],recipes[m][1],recipes[m][2],recipes[m][3],recipes[m][4]);
+}
+
+// Code to apply Blast Furnace alloys.
+for (var m in alloys) {   
+    var alloy = alloys[m];
+    
+    var alloyRecipe = RotaryCraft.addBlastFurnaceAlloying(alloy[0], alloy[1][1], alloy[2]);
+    
+    if (alloy[1][0] > 0) alloyRecipe.required(alloy[1][0]);
+    if (alloy[7] > 0) alloyRecipe.setXP(alloy[7]);
+    if (alloy[6]) alloyRecipe.addBonus();
+    if (alloy[3]) alloyRecipe.input(1, alloy[3][0], alloy[3][1], alloy[3][2]);
+    if (alloy[4]) alloyRecipe.input(2, alloy[4][0], alloy[4][1], alloy[4][2]);
+    if (alloy[5]) alloyRecipe.input(3, alloy[5][0], alloy[5][1], alloy[5][2]);
+    
+    //          alloy[] index:
+    // 0="output" 
+    // 1=[# consumed at a time, 3x3 ingredient]
+    // 2=temperature 
+    // 3=[# consumed at a time, middle ingredient]
+    // 4=[# consumed at a time, top ingredient]
+    // 5=[# consumed at a time, bottom ingredient]
+    // 6=provides bonus?
+    // 7=XP amount provided
+    
+    
+    /*
+
+    if (alloys[m][1][0] < 1) {  // If the main ingredient requirement number is 0, then the number of the main ingredient doesn't matter.
+        switch(alloys[m][6]) {  // Check whether or not the recipe supplies a bonus.
+            case true: // There is a bonus
+            
+            if(alloys[m][3][0] != null) { // First argument
+                if(alloys[m][4][0] != null) { // Second Argument
+                    if (alloys[m][5][0] != null) { // Third Argument
+                        RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).input(2, alloys[m][4][0], alloys[m][4][1], alloys[m][4][2]).input(3, alloys[m][5][0], alloys[m][5][1], alloys[m][5][2]).setXP(alloys[m][7]).addBonus();
+                    }
+                    else { // No third Argument
+                    }
+                        RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).input(2, alloys[m][4][0], alloys[m][4][1], alloys[m][4][2]).setXP(alloys[m][7]).addBonus();
+                }
+                else { // No second Argument
+                    RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).setXP(alloys[m][7]).addBonus();
+                }
+            }
+            else { // No first argument
+                RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).setXP(alloys[m][7]).addBonus();
+            }
+            
+            case false: // No bonus supplied.
+            
+            if(alloys[m][3][0] != null) { // First argument
+                if(alloys[m][4][0] != null) { // Second Argument
+                    if (alloys[m][5][0] != null) { // Third Argument
+                        RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).input(2, alloys[m][4][0], alloys[m][4][1], alloys[m][4][2]).input(3, alloys[m][5][0], alloys[m][5][1], alloys[m][5][2]).setXP(alloys[m][7]);
+                    }
+                    else { // No third Argument
+                    }
+                        RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).input(2, alloys[m][4][0], alloys[m][4][1], alloys[m][4][2]).setXP(alloys[m][7]);
+                }
+                else { // No second Argument
+                    RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).setXP(alloys[m][7]);
+                }
+            }
+            else { // No first argument
+                RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).setXP(alloys[m][7]);
+            }
+            
+        }
+    }
+    else { // There is a specific amount of the main material required.
+        switch(alloys[m][6]) { // Check to see if a bonus is provided.
+            case true: // Bonus output is provided.
+            
+            if(alloys[m][3][0] != null) { // First argument
+                if(alloys[m][4][0] != null) { // Second Argument
+                    if (alloys[m][5][0] != null) { // Third Argument
+                        RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).input(2, alloys[m][4][0], alloys[m][4][1], alloys[m][4][2]).input(3, alloys[m][5][0], alloys[m][5][1], alloys[m][5][2]).setXP(alloys[m][7]).required(alloys[m][1][0]).addBonus();
+                    }
+                    else { // No third Argument
+                    }
+                        RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).input(2, alloys[m][4][0], alloys[m][4][1], alloys[m][4][2]).setXP(alloys[m][7]).required(alloys[m][1][0]).addBonus();
+                }
+                else { // No second Argument
+                    RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).setXP(alloys[m][7]).required(alloys[m][1][0]).addBonus();
+                }
+            }
+            else { // No first argument
+                RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).setXP(alloys[m][7]).required(alloys[m][1][0]).addBonus();
+            }
+            
+            case false: //Bonus output is not provided.
+            
+            if(alloys[m][3][0] != null) { // First argument
+                if(alloys[m][4][0] != null) { // Second Argument
+                    if (alloys[m][5][0] != null) { // Third Argument
+                        RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).input(2, alloys[m][4][0], alloys[m][4][1], alloys[m][4][2]).input(3, alloys[m][5][0], alloys[m][5][1], alloys[m][5][2]).setXP(alloys[m][7]).required(alloys[m][1][0]);
+                    }
+                    else { // No third Argument
+                    }
+                        RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).input(2, alloys[m][4][0], alloys[m][4][1], alloys[m][4][2]).setXP(alloys[m][7]).required(alloys[m][1][0]);
+                }
+                else { // No second Argument
+                    RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).input(1, alloys[m][3][0], alloys[m][3][1],alloys[m][3][2]).setXP(alloys[m][7]).required(alloys[m][1][0]);
+                }
+            }
+            else { // No first argument
+                RotaryCraft.addBlastFurnaceAlloying(alloys[m][0], alloys[m][1][1], alloys[m][2]).setXP(alloys[m][7]).required(alloys[m][1][0]);
+            }
+            
+        }
+    }
+    
+    */
+
 }
