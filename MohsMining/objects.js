@@ -20,10 +20,11 @@ var metals = ["Steel",
               "Electrum"];
 
 for(var m in metals){
-    addMetalIngot(metals[m]);
-    addOreDict("MohsMining:ingot" + metals[m], "ingot" + metals[m]);
-    addMetalBlock(metals[m]);
-    addOreDict("MohsMining:block" + metals[m], "block" + metals[m]);
+    var metal = metals[m];
+    addMetalIngot(metal);
+    addOreDict("MohsMining:ingot" + metal, "ingot" + metal);
+    addMetalBlock(metal);
+    addOreDict("MohsMining:block" + metal, "block" + metal);
 }
 
 // While we're on it, let's make blocks for ReactorCraft metals.
@@ -33,9 +34,10 @@ if(isModLoaded("ReactorCraft")){
                   "Cd-In-Ag Alloy"];
     
     for (var m in metals){
-        addMetalBlock(metals[m]);
-        addOreDict("MohsMining:block" + metals[m], "block" + metals[m]);
-        addShapedStandardRecipe("MohsMining:block" + metals[m], "block", "ingot" + metals[m]);
+        var metal = metal;
+        addMetalBlock(metal);
+        addOreDict("MohsMining:block" + metal, "block" + metal);
+        addShapedStandardRecipe("MohsMining:block" + metal, "block", "ingot" + metal);
     }
     
     // Pitchblende is actually Uranium, so we need to add that oredict as well.
@@ -72,8 +74,10 @@ var toolMats = [["Tin",     "TIN",      "ingotTin"],
                 ["Quartz",  "QUARTZ",   "crystalNetherQuartz"]];
 
 for(var m in toolMats) for(var n in toolTypes){
-	addItem("tool" + toolTypes[n] + toolMats[m][0], "Tool" + toolTypes[n], 1, "MohsMining.tools").tooldata(ToolData(toolMats[m][1]));
-	addShapedStandardRecipe("MohsMining:tool" + toolTypes[n] + toolMats[m][0], toolTypes[n].toLowerCase(), toolMats[m][2]);
+    var material = toolMats[m];
+    var type = toolTypes[n];
+	addItem("tool" + type + material[0], "Tool" + type, 1, "MohsMining.tools").tooldata(ToolData(material[1]));
+	addShapedStandardRecipe("MohsMining:tool" + type + material[0], type.toLowerCase(), material[2]);
 }
 
 // What's the point of lead if we can't have a lead pipe?  A very nasty weapon, but doesn't last long.
@@ -81,9 +85,9 @@ addItem("toolPipeLead","ToolSword",1,"MohsMining.tools").tooldata(ToolData("LEAD
 
 // Lead Pipe doesn't have a default recipe.  Let's make one.
 addShapedRecipe("MohsMining:toolPipeLead", [
-  [null, null, "ingotLead"],
-  [null, "ingotLead", null],
-  ["ingotLead", null, null]]);
+    [null, null, "ingotLead"],
+    [null, "ingotLead", null],
+    ["ingotLead", null, null]]);
 
 
 // If the chisel mod is included, let's add a more chisels to the game.
@@ -98,16 +102,22 @@ if(isModLoaded("chisel")){
         ["Platinum",   320,     false,  "ingotPlatinum"],
         ["Nickel",     400,     true,   "ingotNickel"],
         ["Bronze",     512,     true,   "ingotBronze"],
-        ["Steel",      920,     true,   "ingotSteel"],,
+        ["Steel",      920,     true,   "ingotSteel"],
         ["Quartz",     1200,    true,   "crystalNetherQuartz"],
         ["Emerald",    1500,    true,   "gemEmerald"]
     ];
 
     for (var m in materials) {
-        var mat = materials[m][3];
-        addItem("toolChisel"+materials[m][0], "ToolChisel", 1, "MohsMining.tools").tooldata(ToolData(materials[m][0].toUpperCase()).durability(materials[m][1]).hasModes(materials[m][2]));
-        addShapedRecipe("MohsMining:toolChisel"+materials[m][0], [
-            [null,          mat,    null ],
+        var material = materials[m];
+        var mat = material[3];
+        var chiselItem = addItem("toolChisel" + material[0], "ToolChisel", 1, "MohsMining.tools");
+        
+        chiselItem.tooldata(ToolData(material[0].toUpperCase())
+            .durability(material[1])
+            .hasModes(material[2]));
+        
+        addShapedRecipe("MohsMining:toolChisel"+material[0],
+           [[null,          mat,    null ],
             ["stickWood",   null,   null ],
             [null,          null,   null ]]);
     }
@@ -138,6 +148,8 @@ var armorMats = [["Tin",        "TIN",      "ingotTin"],
 ];
 
 for(var m in armorMats) for(var n in armorTypes) {
-	addItem("armor" + armorMats[m][0] + armorTypes[n],"CoreArmor",1,"MohsMining.armor").armordata(ArmorData(armorMats[m][1], armorTypes[n].toLowerCase()));
-	addShapedStandardRecipe("MohsMining:armor" + armorMats[m][0] + armorTypes[n],armorTypes[n].toLowerCase(), (armorMats[m][2]));
+    var material = armorMats[m];
+    var type = armorTypes[n];
+	addItem("armor" + material[0] + type,"CoreArmor",1,"MohsMining.armor").armordata(ArmorData(material[1], type.toLowerCase()));
+	addShapedStandardRecipe("MohsMining:armor" + material[0] + type,type.toLowerCase(), (material[2]));
 }

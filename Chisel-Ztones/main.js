@@ -38,14 +38,15 @@ if(isModLoaded("chisel")){
   Chisel.addVariation("ztones", "Ztones:stoneTile");
 
 // The rest can be handled using a looped script.
-  for(var meta = 0; meta < 16; meta++) Chisel.addVariation("glaxx","Ztones:tile.glaxx:"+meta);
+  for(var meta = 0; meta < 16; meta++) Chisel.addVariation("glaxx","Ztones:tile.glaxx:" + meta);
   
-  for(var type in ztonesTypes){
-   Chisel.addVariation("ztones", "Ztones:tile."+ztonesTypes[type]+"Block");
-   removeRecipes("Ztones:tile."+ztonesTypes[type]+"Block:*");
-   Chisel.addGroup(ztonesTypes[type]);
-   Chisel.addVariation(ztonesTypes[type], "Ztones:stoneTile");
-   for(var meta = 0; meta < 16; meta++) Chisel.addVariation(ztonesTypes[type],"Ztones:tile."+ztonesTypes[type]+"Block:"+meta);
+  for(var m in ztonesTypes){
+    var type = ztonesTypes[m]
+   Chisel.addVariation("ztones", "Ztones:tile." + type + "Block");
+   removeRecipes("Ztones:tile." + type + "Block:*");
+   Chisel.addGroup(type);
+   Chisel.addVariation(type, "Ztones:stoneTile");
+   for(var meta = 0; meta < 16; meta++) Chisel.addVariation(type,"Ztones:tile." + type + "Block:" + meta);
     }
 }
 

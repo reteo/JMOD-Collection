@@ -42,9 +42,11 @@ var toolmat = [
                                                                     "enderutilities"]
 ];
 
-for (var m in toolmat)
-    if ((toolmat[m][7] == null) || isModLoaded(toolmat[m][7]))
-        addToolMaterial(toolmat[m][0],toolmat[m][1],toolmat[m][2],toolmat[m][3],toolmat[m][4],toolmat[m][5],toolmat[m][6]);
+for (var m in toolmat) {
+    var material = toolmat[m];
+    if ((material[7] == null) || isModLoaded(material[7]))
+        addToolMaterial(material[0],material[1],material[2],material[3],material[4],material[5],material[6]);
+}
 
 
 // ----------------------------------------------------------------------------- //
@@ -96,6 +98,8 @@ var armormat = [
     ["EMERALD",         35, 5, 14,11, 5, 14, "gemDiamond",       null]
 ];
 
-for (var m in armormat)
-    if ((armormat[m][8] == null) || isModLoaded(armormat[m][8]))
-        addArmorMaterial(armormat[m][0], armormat[m][1], armormat[m][2], armormat[m][3], armormat[m][4], armormat[m][5], armormat[m][6], armormat[m][7]);
+for (var m in armormat) {
+    var material = armormat[m];
+    if ((material[8] == null) || isModLoaded(material[8]))
+        addArmorMaterial(material[0], material[1], material[2], material[3], material[4], material[5], material[6], material[7]);
+}

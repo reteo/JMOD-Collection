@@ -15,22 +15,27 @@ addCreativeTab("JustDyes.general","Just Dyes","JustDyes:itemDyeWhite");
 // First, to label the colors.
 // Name, color index, vanilla dye meta, source to keep (for alternate uses), number to make of vanilla dye
 var colors = [
-    ["White",0,15,"minecraft:bone",3],          // Bonemeal
-    ["Blue",11,4,"minecraft:lapis_block",9],    // Lapis Lazuli
-    ["Brown",12,3,null,null],                   // Cocoa Beans
-    ["Green",13,2,null,null],                    // Cactus Green
-    ["Black",15,0,null,null]];                   // Ink Sac
+    ["White",    0, 15,  "minecraft:bone",           3],     // Bonemeal
+    ["Blue",    11,  4,  "minecraft:lapis_block",    9],     // Lapis Lazuli
+    ["Brown",   12,  3,  null,                       null],  // Cocoa Beans
+    ["Green",   13,  2,  null,                       null],  // Cactus Green
+    ["Black",   15,  0,  null,                       null]]; // Ink Sac
 
 for (var m in colors){
+    color = colors[m];
     // First, add the dye item.
-    addItem("itemDye"+colors[m][0], "CoreDye", 64, "JustDyes.general").colorindex(colors[m][1]);
+    addItem("itemDye"+color[0], "CoreDye", 64, "JustDyes.general").colorindex(color[1]);
+    
     // Then, assign it to the Ore Dictionary.
-    addOreDict("JustDyes:itemDye"+colors[m][0],  "dye"+colors[m][0]);
-    addOreDict("JustDyes:itemDye"+colors[m][0],  "dye");
+    addOreDict("JustDyes:itemDye"+color[0],  "dye"+color[0]);
+    addOreDict("JustDyes:itemDye"+color[0],  "dye");
+    
     // Onto the recipes.
-    removeRecipes( "minecraft:dye:"+colors[m][2]);
-    addShapelessRecipe("JustDyes:itemDye"+colors[m][0], ["flower"+colors[m][0]]);  // Results in one dye
-    addShapelessRecipe("JustDyes:itemDye"+colors[m][0]+"@8", ["flower"+colors[m][0],"minecraft:glass_bottle","dustRedstone"]); //Results in 8 dyes
-    if (colors[m][3] != null)  // Keep the vanilla recipe for this material, since it is important.
-        addShapelessRecipe("minecraft:dye:"+colors[m][2]+"@"+colors[m][4], [colors[m][3]]); 
+    removeRecipes( "minecraft:dye:"+color[2]);
+    
+    addShapelessRecipe("JustDyes:itemDye"+color[0], ["flower"+color[0]]);  // Results in one dye
+    addShapelessRecipe("JustDyes:itemDye"+color[0]+"@8", ["flower"+color[0],"minecraft:glass_bottle","dustRedstone"]); //Results in 8 dyes
+    
+    if (color[3] != null)  // Keep the vanilla recipes for these materials, since they are important.
+        addShapelessRecipe("minecraft:dye:"+color[2]+"@"+color[4], [color[3]]); 
 }
