@@ -24,6 +24,7 @@ item.MohsMining.ingotSilver.name=Silver Ingot
 item.MohsMining.ingotAluminum.name=Aluminum Ingot
 item.MohsMining.ingotLead.name=Lead Ingot
 item.MohsMining.ingotNickel.name=Nickel Ingot
+item.MohsMining.ingotSteel.name=Steel Ingot
 
 tile.MohsMining.blockAluminum.name=Aluminum Block
 tile.MohsMining.blockPlatinum.name=Platinum Block
@@ -34,6 +35,7 @@ tile.MohsMining.blockNickel.name=Nickel Block
 tile.MohsMining.blockSilver.name=Silver Block
 tile.MohsMining.blockLead.name=Lead Block
 tile.MohsMining.blockTin.name=Tin Block
+tile.MohsMining.blockSteel.name=Steel Block
 tile.MohsMining.blockCd-In-Ag.name=Cd-In-Ag Block
 tile.MohsMining.blockPitchblende.name=Pitchblende Block
 
@@ -125,7 +127,19 @@ item.MohsMining.toolHoeSteel.name=Steel Hoe
 item.MohsMining.toolSwordSteel.name=Steel Sword
 item.MohsMining.toolChiselSteel.name=Steel Chisel
 
+item.MohsMining.toolAxeEmerald.name=Emerald Axe
+item.MohsMining.toolPickaxeEmerald.name=Emerald Pickaxe
+item.MohsMining.toolShovelEmerald.name=Emerald Shovel
+item.MohsMining.toolHoeEmerald.name=Emerald Hoe
+item.MohsMining.toolSwordEmerald.name=Emerald Sword
+item.MohsMining.toolChiselEmerald.name=Emerald Chisel
+
 item.MohsMining.toolPipeLead.name=Lead Pipe
+
+item.MohsMining.armorLeadHelmet.name=Lead Helmet
+item.MohsMining.armorLeadChestplate.name=Lead Chestplate
+item.MohsMining.armorLeadLeggings.name=Lead Leggings
+item.MohsMining.armorLeadBoots.name=Lead Boots
 
 item.MohsMining.armorElectrumHelmet.name=Electrum Helmet
 item.MohsMining.armorElectrumChestplate.name=Electrum Chestplate
@@ -142,7 +156,7 @@ item.MohsMining.armorCertusChestplate.name=Certus Quartz Chestplate
 item.MohsMining.armorCertusLeggings.name=Certus Quartz Leggings
 item.MohsMining.armorCertusBoots.name=Certus Quartz Boots 
 
-item.MohsMining.armorQuartz.name=Nether Quartz Helmet
+item.MohsMining.armorQuartzHelmet.name=Nether Quartz Helmet
 item.MohsMining.armorQuartzChestplate.name=Nether Quartz Chestplate
 item.MohsMining.armorQuartzLeggings.name=Nether Quartz Leggings
 item.MohsMining.armorQuartzBoots.name=Nether Quartz Boots 
