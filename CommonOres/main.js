@@ -31,56 +31,65 @@ addBlock("blockMetalGeneric", "MetalBlock", 10.0, 10.0, "pickaxe", 1, "iron", "C
 addItem("ingotGeneric", "IngotGeneric", 64, "CommonOres.general");
 
 // Next, we add the blocks and ingots.
-var metals = ["aluminum","copper","tin","bronze","nickel","lead","silver","platinum","electrum"];
+(function () {
+    var metals = ["aluminum","copper","tin","bronze","nickel","lead","silver","platinum","electrum"];
 
-for(var m in metals){
-    addMetalBlock(metals[m]);
-    addOreDict("CommonOres:" + "block" + metals[m], "block" + metals[m]);
-    addMetalIngot(metals[m]);
-    addOreDict("CommonOres:" + "ingot" + metals[m], "ingot" + metals[m]);
-}
+    for(var m in metals){
+        var metal = metals[m];
+        addMetalBlock(metal);
+        addOreDict("CommonOres:" + "block" + metal, "block" + metal);
+        addMetalIngot(metal);
+        addOreDict("CommonOres:" + "ingot" + metal, "ingot" + metal);
+    }
+})();
 
 // Then, we add the ores.
-var ores = ["Aluminum","Copper","Tin","Nickel","Lead","Silver","Platinum"];
-
-for(var m in ores){
-    addBlock("ore" + ores[m], "CoreBlock", 3.0, 5.0, "pickaxe", 1, "rock", "CommonOres.general");
-    addOreDict("CommonOres:" + "ore" + ores[m], "ore" + ores[m]);
-    addSmeltingRecipe("CommonOres:" + "ingot" + ores[m],"CommonOres:" + "ore" + ores[m]);
-}
+(function () {
+    var ores = ["Aluminum","Copper","Tin","Nickel","Lead","Silver","Platinum"];
+    
+    for(var m in ores){
+        var ore = ores[m];
+        addBlock("ore" + ore, "CoreBlock", 3.0, 5.0, "pickaxe", 1, "rock", "CommonOres.general");
+        addOreDict("CommonOres:" + "ore" + ore, "ore" + ore);
+        addSmeltingRecipe("CommonOres:" + "ingot" + ore,"CommonOres:" + "ore" + ore);
+    }
+})();
 
 // Now, we move onto materials.
 // First, for tools.
-addToolMaterial( "FLINT", 1, 175, 5.0,1.0,10, "itemFlint" );
-addToolMaterial( "ALUMINUM", 2, 175, 4.5,2.0, 4, "ingotAluminum" );
-addToolMaterial( "COPPER", 2, 180, 5.0,1.0, 5, "ingotCopper" );
-addToolMaterial( "BRONZE", 2, 250, 6.0,1.0,14, "ingotBronze" );
-addToolMaterial( "NICKEL", 2, 200, 7.0,2.5,17, "ingotNickel" );
-addToolMaterial( "LEAD", 0, 131, 7.0,4.0,0, "ingotLead" );
-addToolMaterial( "SILVER", 2, 25,16.0,1.0,20, "ingotSilver" );
-addToolMaterial( "PLATINUM", 2,400, 7.0,1.0,30, "ingotPlatinum" );
-addToolMaterial( "ELECTRUM", 1, 100,20.0,0.0,30, "ingotElectrum" );
+addToolMaterial( "FLINT",       1, 175,  5.0, 1.0, 10, "itemFlint" );
+addToolMaterial( "ALUMINUM",    2, 175,  4.5, 2.0,  4, "ingotAluminum" );
+addToolMaterial( "COPPER",      2, 180,  5.0, 1.0,  5, "ingotCopper" );
+addToolMaterial( "BRONZE",      2, 250,  6.0, 1.0, 14, "ingotBronze" );
+addToolMaterial( "NICKEL",      2, 200,  7.0, 2.5, 17, "ingotNickel" );
+addToolMaterial( "LEAD",        0, 131,  7.0, 4.0,  0, "ingotLead" );
+addToolMaterial( "SILVER",      2, 25,  16.0, 1.0, 20, "ingotSilver" );
+addToolMaterial( "PLATINUM",    2, 400,  7.0, 1.0, 30, "ingotPlatinum" );
+addToolMaterial( "ELECTRUM",    1, 100, 20.0, 0.0, 30, "ingotElectrum" );
 
 // Then, for armor.
-addArmorMaterial( "ALUMINUM", 6,2,4,3,1,20,"ingotAluminum" );
-addArmorMaterial( "COPPER", 8,2,5,4,1, 9,"ingotCopper" );
-addArmorMaterial( "TIN", 8,2,4,3,1,15,"ingotTin" );
-addArmorMaterial( "BRONZE", 18,2,6,5,2, 9,"ingotBronze" );
-addArmorMaterial( "NICKEL", 14,2,6,5,2, 15,"ingotNickel" );
-addArmorMaterial( "SILVER", 7,2,5,3,1,20,"ingotSilver" );
-addArmorMaterial( "PLATINUM", 28,3,8,6,3,20,"ingotPlatinum" );
-addArmorMaterial( "ELECTRUM", 8,2,5,4,1,28,"ingotElectrum" ); 
+addArmorMaterial( "ALUMINUM",    6, 2, 4, 3, 1, 20, "ingotAluminum" );
+addArmorMaterial( "COPPER",      8, 2, 5, 4, 1,  9, "ingotCopper" );
+addArmorMaterial( "TIN",         8, 2, 4, 3, 1, 15, "ingotTin" );
+addArmorMaterial( "BRONZE",     18, 2, 6, 5, 2,  9, "ingotBronze" );
+addArmorMaterial( "NICKEL",     14, 2, 6, 5, 2, 15, "ingotNickel" );
+addArmorMaterial( "SILVER",      7, 2, 5, 3, 1, 20, "ingotSilver" );
+addArmorMaterial( "PLATINUM",   28, 3, 8, 6, 3, 20, "ingotPlatinum" );
+addArmorMaterial( "ELECTRUM",    8, 2, 5, 4, 1, 28, "ingotElectrum" ); 
 
 // Now, to actually make the tools and armor.
 // First, the tools.
-var toolTypes = ["Sword","Hoe","Pickaxe","Axe","Shovel"];
-var toolMats = ["Flint","Aluminum","Copper","Bronze","Nickel","Silver","Platinum","Electrum"];
-
-for(var m in toolMats) for(var n in toolTypes){
-	addItem("tool" + toolTypes[n] + toolMats[m],"Tool" + toolTypes[n],1,"CommonOres.tools").tooldata(ToolData(toolMats[m].toUpperCase()));
-	addShapedStandardRecipe("CommonOres:tool" + toolTypes[n] + toolMats[m], toolTypes[n].toLowerCase(), (toolMats[m] != "Flint" ? "ingot" : "item")+toolMats[m]);
-}
-
+(function () {
+    var toolTypes = ["Sword","Hoe","Pickaxe","Axe","Shovel"];
+    var toolMats = ["Flint","Aluminum","Copper","Bronze","Nickel","Silver","Platinum","Electrum"];
+    
+    for(var m in toolMats) for(var n in toolTypes){
+        var material = toolMats[m];
+        var type = toolTypes[n];
+    	addItem("tool" + type + material,"Tool" + type, 1, "CommonOres.tools").tooldata(ToolData(material.toUpperCase()));
+    	addShapedStandardRecipe("CommonOres:tool" + type + material, type.toLowerCase(), (material != "Flint" ? "ingot" : "item")+material);
+    }
+})();
 // What's the point of lead if we can't have a lead pipe?  A very nasty weapon, but doesn't last long.
 addItem("toolPipeLead","ToolSword",1,"CommonOres.tools").tooldata(ToolData("LEAD"));;
 
@@ -91,49 +100,59 @@ addShapedRecipe("CommonOres:toolPipeLead", [
   ["ingotLead", null, null]]);
 
 // Next, the Armor
-var armorTypes = ["Helmet","Chestplate","Leggings","Boots"];
-var armorMats = ["Aluminum","Copper","Bronze","Nickel","Silver","Platinum","Electrum"];
-
-for(var m in armorMats) for(var n in armorTypes) {
-	addItem("armor" + armorMats[m] + armorTypes[n],"CoreArmor",1,"CommonOres.armor").armordata(ArmorData(armorMats[m].toUpperCase(),armorTypes[n].toLowerCase()));
-	addShapedStandardRecipe("CommonOres:armor" + armorMats[m] + armorTypes[n],armorTypes[n].toLowerCase(),"ingot"+armorMats[m]);
-}
+(function () {
+    var armorTypes = ["Helmet","Chestplate","Leggings","Boots"];
+    var armorMats = ["Aluminum","Copper","Bronze","Nickel","Silver","Platinum","Electrum"];
+    
+    for(var m in armorMats) for(var n in armorTypes) {
+        var material = armorMats[m];
+        var type = armorTypes[n];
+    	addItem("armor" + material + type, "CoreArmor",1,"CommonOres.armor").armordata(ArmorData(material.toUpperCase(), type.toLowerCase()));
+    	addShapedStandardRecipe("CommonOres:armor" + material + type, type.toLowerCase(), "ingot" + material);
+    }
+})();
 
 // If the chisel mod is included, let's add a few additional chisels to the game.
 if(isModLoaded("chisel")){
 
     // Order of options: Material name, durability, has modes?
     var materials = [
-        ["Flint",64,false],
-        ["Copper",128,true],
-        ["Aluminum",256,true],
-        ["Nickel",320,true],
-        ["Bronze",512,true],
-        ["Platinum",640,true]
+        ["Flint",     64, false],
+        ["Copper",   128, true],
+        ["Aluminum", 256, true],
+        ["Nickel",   320, true],
+        ["Bronze",   512, true],
+        ["Platinum", 640, true]
     ];
     
     for (var m in materials) {
-        mat=(materials[m][0] != "Flint" ? "ingot" : "item")+materials[m][0];
-        addItem("toolChisel"+materials[m][0], "ToolChisel", 1, "CommonOres.tools").tooldata(ToolData(materials[m][0].toUpperCase()).durability(materials[m][1]).hasModes(materials[m][2]));
-        addShapedRecipe("CommonOres:toolChisel"+materials[m][0], [
+        var material = materials[m];
+        var mat = (material[0] != "Flint" ? "ingot" : "item")+material[0];
+        
+        addItem("toolChisel"+material[0], "ToolChisel", 1, "CommonOres.tools").tooldata(ToolData(material[0].toUpperCase()).durability(material[1]).hasModes(material[2]));
+        addShapedRecipe("CommonOres:toolChisel"+material[0], [
             [null,          mat,    null ],
             ["stickWood",   null,   null ],
             [null,          null,   null ]]);
     }
 }
-else log("Chisel mod is not installed; skipping additional chisels.");
+
+else log("Chisel mod is not installed; skipping chisel generation.");
 
 // Finally, the ore needs to be spawned in the world.
 // The order is "name", vein size, chances per chunk, lower Y level, higher Y level.
-ores = [
-    ["Alumninum", 7, 24, 5, 64],
-    ["Copper", 7, 22, 5, 64],
-    ["Tin", 7, 20, 5, 64],
-    ["Nickel", 8, 12, 16, 48],
-    ["Lead", 8, 8, 8, 32],
-    ["Silver", 8, 4, 8, 32],
-    ["Platinum", 4, 2, 5, 16]];
-
-for (var m in ores){
-    addOreGeneration().blockToGenerate("CommonOres:ore"+ores[m][0]).veinSize(ores[m][1]).chancesPerChunk(ores[m][2]).startY(ores[m][3]).endY(ores[m][4]);
-}
+(function () {
+    veins = [
+        ["Alumninum", 7, 24, 5, 64],
+        ["Copper", 7, 22, 5, 64],
+        ["Tin", 7, 20, 5, 64],
+        ["Nickel", 8, 12, 16, 48],
+        ["Lead", 8, 8, 8, 32],
+        ["Silver", 8, 4, 8, 32],
+        ["Platinum", 4, 2, 5, 16]];
+    
+    for (var m in veins){
+        var vein = veins[m];
+        addOreGeneration().blockToGenerate("CommonOres:ore"+vein[0]).veinSize(vein[1]).chancesPerChunk(vein[2]).startY(vein[3]).endY(vein[4]);
+    }
+})();

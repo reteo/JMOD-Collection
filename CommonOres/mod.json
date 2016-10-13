@@ -2,7 +2,7 @@
   "modid": "CommonOres",
   "name": "Common Ores",
   "description" : "Adds some common ores to the game, as well as tools and armor.",
-  "version"	:	"1.0",
+  "version"	:	"1.0.1",
   "scripts" : ["main.js"],
   "authors"	: ["reteo"],
   "url" : "http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/mod-packs/2446203-modpack-recipe-survival-industry-a-progressive?comment=187",
