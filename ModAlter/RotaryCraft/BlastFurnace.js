@@ -1,15 +1,20 @@
-// Add definitions for RotaryCraft
-log("Launching Blast Furnace Recipes.");
+// Mod Alter
+
+log("Beginning RotaryCraft Blast Furnace Recipes");
 
 var aluminumFlakes          = 	"RotaryCraft:rotarycraft_item_modextracts:27";
 
 
-/* Let's make a new recipe for metal alloys to encourage use of the blast furnace.
+/* Let's make some common metal alloy recipes to encourage use of the blast furnace.
    In addition, this allows recipes that are more true to life; a primary ingredient
-   with one or more additive ingredients.
+   with one or more additive ingredients.  This should conserve the additive element
+   significantly, which will encourage blast furnace use even more!
 */
+
 // Legend: Result, [count, Main Ingredient], Temperature [Additive 1, % chance consumed, # consumed], [Additive 2, % chance consumed, # consumed], [Additive 3, % chance consumed, # consumed], Bonus?, XP per smelt
+
 // NOTE: if count is less than 1, then it is ignored, and any count... er... counts.
+
 var alloys = [
     ["ingotBronze",     [0, "ingotCopper"],   550,    ["ingotTin",    100, 1],        [null],                  [null],    true,   1],
     ["ingotElectrum",   [0, "ingotGold"],     550,    ["ingotSilver", 100, 1],        [null],                  [null],    true,   1],
@@ -26,7 +31,7 @@ var recipes = [
 ];
 
 
-// Now, EnderIO stuff is included here.
+// For an example, let's add EnderIO materials for processing in the blast furnace.
 if (isModLoaded("EnderIO")){
     
 // EnderIO Definitions
@@ -78,36 +83,37 @@ if (isModLoaded("EnderIO")){
 // ------- Assignment Code; don't change anything after this line. -----------
 
 
-
-
-
-// Code to apply Blast Furnace Recipes.
-
-for (var m in recipes) {
-    RotaryCraft.addBlastFurnaceRecipe(recipes[m][0],recipes[m][1],recipes[m][2],recipes[m][3],recipes[m][4]);
-}
+// Code to apply Blast Furnace "Crafting" Recipes.
+(function (craftingRecipes) {
+    for (var m in craftingRecipes) {
+        var recipe = craftingRecipes[m];
+        RotaryCraft.addBlastFurnaceRecipe(recipe[0],recipe[1],recipe[2],recipe[3],recipe[4]);
+    }
+})(recipes);
 
 // Code to apply Blast Furnace alloys.
-for (var m in alloys) {   
-    var alloy = alloys[m];
-    
-    var alloyRecipe = RotaryCraft.addBlastFurnaceAlloying(alloy[0], alloy[1][1], alloy[2]);
-    
-    if (alloy[1][0] > 0) alloyRecipe.required(alloy[1][0]);
-    if (alloy[7] > 0) alloyRecipe.setXP(alloy[7]);
-    if (alloy[6]) alloyRecipe.addBonus();
-    if (alloy[3]) alloyRecipe.input(1, alloy[3][0], alloy[3][1], alloy[3][2]);
-    if (alloy[4]) alloyRecipe.input(2, alloy[4][0], alloy[4][1], alloy[4][2]);
-    if (alloy[5]) alloyRecipe.input(3, alloy[5][0], alloy[5][1], alloy[5][2]);
-    
-    //          alloy[] index:
-    // 0="output" 
-    // 1=[# consumed at a time, 3x3 ingredient]
-    // 2=temperature 
-    // 3=[# consumed at a time, middle ingredient]
-    // 4=[# consumed at a time, top ingredient]
-    // 5=[# consumed at a time, bottom ingredient]
-    // 6=provides bonus?
-    // 7=XP amount provided
-    
-}
+(function (alloyingRecipes) {
+    for (var m in alloyingRecipes) {   
+        var alloy = alloyingRecipes[m];
+        
+        var alloyRecipe = RotaryCraft.addBlastFurnaceAlloying(alloy[0], alloy[1][1], alloy[2]);
+        
+        if (alloy[1][0] > 0) alloyRecipe.required(alloy[1][0]);
+        if (alloy[7] > 0) alloyRecipe.setXP(alloy[7]);
+        if (alloy[6]) alloyRecipe.addBonus();
+        if (alloy[3]) alloyRecipe.input(1, alloy[3][0], alloy[3][1], alloy[3][2]);
+        if (alloy[4]) alloyRecipe.input(2, alloy[4][0], alloy[4][1], alloy[4][2]);
+        if (alloy[5]) alloyRecipe.input(3, alloy[5][0], alloy[5][1], alloy[5][2]);
+        
+        //          alloy[] index:
+        // 0="output" 
+        // 1=[# consumed at a time, 3x3 ingredient]
+        // 2=temperature 
+        // 3=[# consumed at a time, middle ingredient]
+        // 4=[# consumed at a time, top ingredient]
+        // 5=[# consumed at a time, bottom ingredient]
+        // 6=provides bonus?
+        // 7=XP amount provided
+        
+    }
+})(alloys);
