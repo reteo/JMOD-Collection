@@ -2,9 +2,6 @@
 
 log("Beginning RotaryCraft Blast Furnace Recipes");
 
-var aluminumFlakes          = 	"RotaryCraft:rotarycraft_item_modextracts:27";
-
-
 /* Let's make some common metal alloy recipes to encourage use of the blast furnace.
    In addition, this allows recipes that are more true to life; a primary ingredient
    with one or more additive ingredients.  This should conserve the additive element
@@ -35,7 +32,7 @@ var recipes = [
 if (isModLoaded("EnderIO")){
     
 // EnderIO Definitions
-    var eioSilicon              =	"EnderIO:itemMaterial:1";
+    var eioSilicon              =	"EnderIO:itemMaterial";
     // EnderAlloy
     var electricalSteel         =	"EnderIO:itemAlloy:0";
     var energeticAlloy          =	"EnderIO:itemAlloy:1";
@@ -64,9 +61,6 @@ if (isModLoaded("EnderIO")){
       [enlightenedClearGlass, [1, "sand"],                600,    ["dustGlowstone",100, 4],       [null],                    [null],    false,   1],
       [darkFusedQuartz,       [4, "gemQuartz"],           600,    ["dyeBlack",100, 4],            [null],                    [null],    false,   1],
       [darkClearGlass,        [1, "sand"],                600,    ["dyeBlack",100, 4],            [null],                    [null],    false,   1],
-      [eioSilicon,            [0, "sand"],                800,    ["itemCharcoal",25, 4],         [aluminumFlakes,25, 1],    [null],    false,   1],
-      [eioSilicon,            [0, "sand"],                800,    ["itemCoal",25, 1],             [aluminumFlakes,25, 1],    [null],    false,   1],
-      [eioSilicon,            [0, "sand"],                800,    ["coalCoke",25, 1],             [aluminumFlakes,25, 1],    [null],    true,    1],
       [conductiveIron,        [0, "ingotIron"],           600,    ["dustRedstone", 100, 1],       [null],                    [null],    false,   1],
       [redstoneAlloy,         [0, "itemSilicon"],         600,    ["dustRedstone", 100, 1],       [null],                    [null],    false,   1],
       [pulsatingIron,         [0, "ingotIron"],          1000,    ["pearlEnder", 100, 1],         [null],                    [null],    false,   1],
@@ -75,11 +69,10 @@ if (isModLoaded("EnderIO")){
       [soularium,             [0, "soulsand"],           1450,    ["ingotGold", 100, 1],          [null],                    [null],    false,   1],
     ];
     
-    alloys.push.apply(alloys,eioAlloys);  // Merge the general alloys with the EnderIO specific ones.
+    alloys = alloys.concat(eioAlloys); // Merge the general alloys with the EnderIO specific ones.
     
 }
 
-    
 // ------- Assignment Code; don't change anything after this line. -----------
 
 
