@@ -7,7 +7,8 @@
    only have a chance of being consumed, requires specific temperatures for certain results,
    and even allow you to make crafting-table-like recipes that require smelting.*/
 
-if (isModLoaded("RotaryCraft"))
-    load("RotaryCraft/BlastFurnace.js");
-
+if (isModLoaded("RotaryCraft")){
+    loadjs("RotaryCraft/BlastFurnace.js");
+    loadjs("RotaryCraft/Centrifuge.js");
+}
 
