@@ -5,7 +5,11 @@
 addCreativeTab("SimpleWoodenBucket.general","Survival Industry","SimpleWoodenBucket:itemWoodenBucket");
 
 // Create the bucket.
-addItem("itemWoodenBucket", "ItemWoodenBucket", 16, "SimpleWoodenBucket.general");
+addItem("ItemWoodenBucket").set({
+  name : "itemWoodenBucket",
+  stacksize : 16,
+  tab : "SimpleWoodenBucket.general"
+});
 
 // Make the recipe for the bucket.  Uses the Ore Dictionary.
 addShapedRecipe("SimpleWoodenBucket:itemWoodenBucket", [

@@ -27,8 +27,21 @@ defineColor("ELECTRUM", 255, 255, 192);
 
 // Now for some generic stuff to build from.
 // NOTE: These are REQUIRED for addMetalBlock() and addMetalIngot() to work!
-addBlock("blockMetalGeneric", "MetalBlock", 10.0, 10.0, "pickaxe", 1, "iron", "CommonOres.general");
-addItem("ingotGeneric", "IngotGeneric", 64, "CommonOres.general");
+addBlock("MetalBlock").set({
+	name : "blockMetalGeneric",
+	hardness : 10.0,
+	blastresistance : 10.0,
+	tool : "pickaxe",
+	harvestlevel : 1,
+	material : "iron",
+	tab : "CommonOres.general"
+});
+
+addItem("IngotGeneric").set({
+	name : "ingotGeneric",
+	stacksize : 64,
+	tab : "CommonOres.general"
+});
 
 // Next, we add the blocks and ingots.
 (function () {
@@ -49,7 +62,15 @@ addItem("ingotGeneric", "IngotGeneric", 64, "CommonOres.general");
     
     for(var m in ores){
         var ore = ores[m];
-        addBlock("ore" + ore, "CoreBlock", 3.0, 5.0, "pickaxe", 1, "rock", "CommonOres.general");
+        addBlock("CoreBlock").set({
+            name            : "ore" + ore,
+            hardness        : 3.0,
+            blastresistance : 5.0,
+            tool            : "pickaxe",
+            harvestlevel    : 1,
+            material        : "rock",
+            tab             : "CommonOres.general"
+        });
         addOreDict("CommonOres:" + "ore" + ore, "ore" + ore);
         addSmeltingRecipe("CommonOres:" + "ingot" + ore,"CommonOres:" + "ore" + ore);
     }
@@ -86,12 +107,22 @@ addArmorMaterial( "ELECTRUM",    8, 2, 5, 4, 1, 28, "ingotElectrum" );
     for(var m in toolMats) for(var n in toolTypes){
         var material = toolMats[m];
         var type = toolTypes[n];
-    	addItem("tool" + type + material,"Tool" + type, 1, "CommonOres.tools").tooldata(ToolData(material.toUpperCase()));
+		addItem("Tool" + type).set({
+			name		:	"tool" + type + material,
+			stacksize 	:	1,
+			tab			:	"CommonOres.tools",
+			tooldata	:	ToolData(material.toUpperCase())
+		});
     	addShapedStandardRecipe("CommonOres:tool" + type + material, type.toLowerCase(), (material != "Flint" ? "ingot" : "item")+material);
     }
 })();
 // What's the point of lead if we can't have a lead pipe?  A very nasty weapon, but doesn't last long.
-addItem("toolPipeLead","ToolSword",1,"CommonOres.tools").tooldata(ToolData("LEAD"));;
+addItem("ToolSword").set({
+    name        :   "toolPipeLead",
+    stacksize   :   1,
+    tab         :   "CommonOres.tools",
+    tooldata    :   ToolData("LEAD")
+});
 
 // Lead Pipe doesn't have a default recipe.  Let's make one.
 addShapedRecipe("CommonOres:toolPipeLead", [
@@ -107,7 +138,12 @@ addShapedRecipe("CommonOres:toolPipeLead", [
     for(var m in armorMats) for(var n in armorTypes) {
         var material = armorMats[m];
         var type = armorTypes[n];
-    	addItem("armor" + material + type, "CoreArmor",1,"CommonOres.armor").armordata(ArmorData(material.toUpperCase(), type.toLowerCase()));
+        addItem("CoreArmor").set({
+            name : "armor" + material + type,
+            stacksize : 1,
+            tab : "CommonOres.armor",
+            armordata : ArmorData(material.toUpperCase(), type.toLowerCase())
+        });
     	addShapedStandardRecipe("CommonOres:armor" + material + type, type.toLowerCase(), "ingot" + material);
     }
 })();
@@ -129,7 +165,13 @@ if(isModLoaded("chisel")){
         var material = materials[m];
         var mat = (material[0] != "Flint" ? "ingot" : "item")+material[0];
         
-        addItem("toolChisel"+material[0], "ToolChisel", 1, "CommonOres.tools").tooldata(ToolData(material[0].toUpperCase()).durability(material[1]).hasModes(material[2]));
+        addItem("toolChisel"+material[0], "ToolChisel", 1, "CommonOres.tools").tooldata();
+        addItem(".chisel.ToolChisel").set({
+            name : "toolChisel"+material[0],
+            stacksize : 1,
+            tab : "CommonOres.tools",
+            tooldata : ToolData(material[0].toUpperCase()).durability(material[1]).hasModes(material[2])
+        });
         addShapedRecipe("CommonOres:toolChisel"+material[0], [
             [null,          mat,    null ],
             ["stickWood",   null,   null ],

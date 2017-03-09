@@ -10,10 +10,15 @@ function Crop(itemID, oreDict, buff) {
     this.hunger = 1;
     this.saturation = 0.0;
     this.itemID = itemID;
-    if (buff != null)
-        addItem(itemID, "CoreFood", 64, "ProgressiveFood.food").fooddata(FoodData(this.hunger, this.saturation, false, false).buffdata(buff[0], buff[1], buff[2], buff[3]));
-    else
-        addItem(itemID, "CoreFood", 64, "ProgressiveFood.food").fooddata(FoodData(this.hunger, this.saturation, false, false));
+    
+    this.fooddata = FoodData(this.hunger, this.saturation, false, false);
+    if (buff != null) this.fooddata.buffdata(buff[0], buff[1], buff[2], buff[3]);
+    this.action = addItem("CoreFood").set({
+        name : this.itemID,
+        stacksize : 64,
+        tab : "ProgressiveFood.food",
+        fooddata : this.fooddata
+    });    
 }
 
 function Meat(itemID, oreDict, buff) {
@@ -21,10 +26,15 @@ function Meat(itemID, oreDict, buff) {
     this.hunger = 1;
     this.saturation = 0.0;
     this.itemID = itemID;
-    if (buff != null)
-        addItem(itemID, "CoreFood", 16, "ProgressiveFood.food").fooddata(FoodData(this.hunger, this.saturation, true, false).buffdata(buff[0], buff[1], buff[2], buff[3]));
-    else
-        addItem(itemID, "CoreFood", 16, "ProgressiveFood.food").fooddata(FoodData(this.hunger, this.saturation, true, false));
+
+    this.fooddata = FoodData(this.hunger, this.saturation, true, false);
+    if (buff != null) this.fooddata.buffdata(buff[0], buff[1], buff[2], buff[3]);
+    this.action = addItem("CoreFood").set({
+        name : this.itemID,
+        stacksize : 16,
+        tab : "ProgressiveFood.food",
+        fooddata : this.fooddata
+    });
 }
 
 function Utensil(itemID, oreDict) {
@@ -32,7 +42,11 @@ function Utensil(itemID, oreDict) {
     this.hunger = 0;
     this.saturation = 0.0;
     this.itemID = itemID;
-    addItem(itemID, "CoreItem", 1, "ProgressiveFood.food");
+    this.action = addItem("CoreItem").set({
+        name : this.itemID,
+        stacksize : 1,
+        tab : "ProgressiveFood.food"
+    });
 }
 
 // This will only allow shapeless recipes, which is fine with food.  If smelting, only the first item will work.
@@ -63,10 +77,14 @@ function Food(itemID, oreDict, process, recipe, buff) {
     var stacksize = 64 / this.hunger
     
     // Next, create the food in JMOD itself.
-    if (buff != null)
-        addItem(itemID, "CoreFood", stacksize, "ProgressiveFood.food").fooddata(FoodData(this.hunger, this.saturation, true, false).buffdata(buff[0], buff[1], buff[2], buff[3]));
-    else
-        addItem(itemID, "CoreFood", stacksize, "ProgressiveFood.food").fooddata(FoodData(this.hunger, this.saturation, true, false));
+    this.fooddata = FoodData(this.hunger, this.saturation, true, false);
+    if (buff != null) this.fooddata.buffdata(buff[0], buff[1], buff[2], buff[3]);
+    this.action = addItem("CoreFood").set({
+        name : this.itemID,
+        stacksize : stacksize,
+        tab : "ProgressiveFood.food",
+        fooddata : this.fooddata
+    });
     
     // Now, let's add the appropriate recipes to the game.
     if (process == "smelt")
@@ -86,4 +104,4 @@ var wheat = new Crop(wheat, "cropWheat", [ null ]);
 //log("FOOD TEST: making bread");
 var bread = new Food(bread, "foodBread", "craft", [wheat, wheat, wheat], [ null ]);
 //log("FOOD TEST: making toast");
-var toast = new Food(toast, "foodToast", "smelt", bread, [ null ]);
+var toast = new Food(toast, "foodToast", "smelt", [bread], [ null ]);
