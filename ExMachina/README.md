@@ -8,12 +8,14 @@ Ex Machina has several purposes:
 
 * Remove higher-end drops from the Ex Nihilo Sifter (such as gold materials and diamonds) and transfer them to the RotaryCraft Centrifuge.
 * Design an alternate method of creating bedrock for the bedrock breaker:
- * Grind obsidian using the grinder to make obsidian dust.
- * Combine obsidian dust and gravel together to make obsidian concrete mix.
- * Use liquefaction machine to moisten the mix into obsidian concrete compound.
- * Cook the obsidian concrete compound in the RotaryCraft blast furnace (at 1200 degrees) to make obsidian concrete blocks.
- * Place the obsidian concrete block in front of the bedrock breaker.
- * When the bedrock breaker breaks the obsidian concrete, it will output bedrock dust.
+
+  * Grind obsidian using the grinder to make obsidian dust.
+  * Combine obsidian dust and gravel together to make obsidian concrete mix.
+  * Use liquefaction machine to moisten the mix into obsidian concrete compound.
+  * Cook the obsidian concrete compound in the RotaryCraft blast furnace (at 1200 degrees) to make obsidian concrete blocks.
+  * Place the obsidian concrete block in front of the bedrock breaker.
+  * When the bedrock breaker breaks the obsidian concrete, it will output bedrock dust.
+
 * Provide repairable crooks and hammers.
 * Allow RotaryCraft grinder and extractor to process sifter/centrifuge ore drops to the machines' native drops.
 
