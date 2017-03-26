@@ -6,7 +6,9 @@ However, RotaryCraft is not one of the mods Ex Nihilo was designed for.  An addo
 
 Ex Machina has several purposes:
 
+* Provide repairable crooks and hammers.
 * Remove higher-end drops from the Ex Nihilo Sifter (such as gold materials and diamonds) and transfer them to the RotaryCraft Centrifuge.
+* Allow RotaryCraft grinder and extractor to process sifter/centrifuge ore drops to the machines' native drops.
 * Design an alternate method of creating bedrock for the bedrock breaker:
 
   * Grind obsidian using the grinder to make obsidian dust.
@@ -16,7 +18,5 @@ Ex Machina has several purposes:
   * Place the obsidian concrete block in front of the bedrock breaker.
   * When the bedrock breaker breaks the obsidian concrete, it will output bedrock dust.
 
-* Provide repairable crooks and hammers.
-* Allow RotaryCraft grinder and extractor to process sifter/centrifuge ore drops to the machines' native drops.
 
 As balancing is considered, new ideas will surface, but for now, these should allow a more integrated skyblock game with RotaryCraft.
