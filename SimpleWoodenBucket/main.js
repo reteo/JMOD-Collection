@@ -19,5 +19,7 @@ addShapedRecipe("SimpleWoodenBucket:itemWoodenBucket", [
   [null,        "plankWood",    null ]]);
 
 // Add a special recipe in the case that Pam's HarvestCraft is installed.
-if (isModLoaded("harvestcraft"))
-    addShapelessRecipe("harvestcraft:freshmilkItem", ["SimpleWoodenBucket:itemWoodenBucket_milk"]);
+if (isModLoaded("harvestcraft")){
+    addShapelessRecipe("harvestcraft:freshwaterItem", ["SimpleWoodenBucket:itemWoodenBucket.water"]);
+    addShapelessRecipe("harvestcraft:freshmilkItem", ["SimpleWoodenBucket:itemWoodenBucket.milk"]);
+}

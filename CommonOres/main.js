@@ -165,7 +165,6 @@ if(isModLoaded("chisel")){
         var material = materials[m];
         var mat = (material[0] != "Flint" ? "ingot" : "item")+material[0];
         
-        addItem("toolChisel"+material[0], "ToolChisel", 1, "CommonOres.tools").tooldata();
         addItem(".chisel.ToolChisel").set({
             name : "toolChisel"+material[0],
             stacksize : 1,
