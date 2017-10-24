@@ -135,7 +135,7 @@ addShapedRecipe("MohsMining:toolPipeLead", [
         for (var m in materials) {
             var material = materials[m];
             var mat = material[3];
-            itemChisel = addItem("toolChisel"+material[0], "ToolChisel", 1, "MohsMining.tools");
+            itemChisel = addItem("toolChisel"+material[0], ".chisel.ToolChisel", 1, "MohsMining.tools");
             itemChisel.tooldata(ToolData(material[0].toUpperCase()).durability(material[1]).hasModes(material[2]));
             addShapedRecipe("MohsMining:toolChisel"+material[0], [
                 [null,          mat,    null ],

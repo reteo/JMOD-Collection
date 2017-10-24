@@ -5,7 +5,12 @@
 addCreativeTab("SimpleWoodenBucket.general","Survival Industry","SimpleWoodenBucket:itemWoodenBucket");
 
 // Create the bucket.
-addItem("itemWoodenBucket", "ItemWoodenBucket", 16, "SimpleWoodenBucket.general");
+addItem("CoreBucket").set({
+	name: "itemWoodenBucket",
+	stacksize: 16,
+	tab : "SimpleWoodenBucket.general", 
+	fluidlist : ['water','milk']
+});
 
 // Make the recipe for the bucket.  Uses the Ore Dictionary.
 addShapedRecipe("SimpleWoodenBucket:itemWoodenBucket", [
@@ -14,5 +19,7 @@ addShapedRecipe("SimpleWoodenBucket:itemWoodenBucket", [
   [null,        "plankWood",    null ]]);
 
 // Add a special recipe in the case that Pam's HarvestCraft is installed.
-if (isModLoaded("harvestcraft"))
-    addShapelessRecipe("harvestcraft:freshmilkItem", ["SimpleWoodenBucket:itemWoodenBucket_milk"]);
+if (isModLoaded("harvestcraft")){
+    addShapelessRecipe("harvestcraft:freshwaterItem", ["SimpleWoodenBucket:itemWoodenBucket.water"]);
+    addShapelessRecipe("harvestcraft:freshmilkItem", ["SimpleWoodenBucket:itemWoodenBucket.milk"]);
+}

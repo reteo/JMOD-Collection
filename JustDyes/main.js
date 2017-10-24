@@ -24,7 +24,12 @@ var colors = [
 for (var m in colors){
     color = colors[m];
     // First, add the dye item.
-    addItem("itemDye"+color[0], "CoreDye", 64, "JustDyes.general").colorindex(color[1]);
+    addItem("CoreDye").set({
+        name : "itemDye"+color[0],
+        stacksize : 64,
+        tab : "JustDyes.general",
+        colorindex : color[1]
+    });
     
     // Then, assign it to the Ore Dictionary.
     addOreDict("JustDyes:itemDye"+color[0],  "dye"+color[0]);
